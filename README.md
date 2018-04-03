@@ -30,6 +30,9 @@ poly:
 Poly checks that args, return and pragmas in overloads are the same.
 If you just pass `a: A`, you can generate `else`
 
+If I have a lot of logic for each variant, `of` gets messy and I have to 
+refactor it in functions.
+Then I need to manually dispatch to those functions in `case` and to do `assert` in them in order to have type safety: with poly I just need to write the kind in signatures
 
 ## name
 
