@@ -27,6 +27,10 @@ poly:
 
 (full in `example.nim`)
 
+Poly checks that args, return and pragmas in overloads are the same.
+If you just pass `a: A`, you can generate `else`
+
+
 ## name
 
 I can't think of another name: poly,morphism

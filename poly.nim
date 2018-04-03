@@ -108,10 +108,18 @@ macro poly*(overloads: untyped): untyped =
           ident(polyVar),
           ident(polyKind)))
 
-    polyCode.add(
-      nnkOfBranch.newTree(
-        value,
-        overload[^1]))
+    if z == 0 and kind == "":
+      polyCode = overload[^1]
+    elif kind != "":
+      polyCode.add(
+        nnkOfBranch.newTree(
+          value,
+          overload[^1]))
+    else:
+      polyCode.add(
+        nnkElse.newTree(
+          overload[^1]))
+
 
     z += 1
     
@@ -137,4 +145,4 @@ macro poly*(overloads: untyped): untyped =
     newEmptyNode(),
     nnkStmtList.newTree(polyCode))
 
-  echo result.repr
+  # echo result.repr
